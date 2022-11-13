@@ -29,7 +29,9 @@ SECRET_KEY =os.environ['SECRET_KEY']
 
 DEBUG = (os.environ['DEBUG']=="True")
 
-ALLOWED_HOSTS = ['web-production-a82c.up.railway.app','localhost','9824-102-89-46-211.eu.ngrok.io','peaceelechi.com']
+ALLOWED_HOSTS = ['web-production-a82c.up.railway.app','localhost','9824-102-89-46-211.eu.ngrok.io','peaceelechi.com',
+'www.peaceelechi.com'
+]
 
 
 # Application definition
