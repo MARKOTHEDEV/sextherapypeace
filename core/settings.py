@@ -153,8 +153,6 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-a82c.up.railway.app','https://98
 
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER='support@peaceelechi.com'
-EMAIL_HOST_PASSWORD='UbAf3wQTDcfPp6r3@'
-# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_USE_TLS = True
