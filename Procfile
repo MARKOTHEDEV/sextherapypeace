@@ -1,2 +1,2 @@
 release: chmod u+x release.sh && ./release.sh
-web: gunicorn iffilate.wsgi:application 
+web: gunicorn core.wsgi:application 
