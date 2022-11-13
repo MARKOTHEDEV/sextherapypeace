@@ -29,7 +29,7 @@ SECRET_KEY =os.environ['SECRET_KEY']
 
 DEBUG = (os.environ['DEBUG']=="True")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web-production-a82c.up.railway.app']
 
 
 # Application definition
@@ -146,3 +146,5 @@ STATIC_ROOT =os.path.join(BASE_DIR,'static')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = ['web-production-a82c.up.railway.app']
