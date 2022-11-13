@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns =[
 
-    path('',views.indexView,name='indexView')
+    path('',views.indexView,name='indexView'),
+    path('webhook',views.payment_webhook)
 
 ]

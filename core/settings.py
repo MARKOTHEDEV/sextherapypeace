@@ -29,7 +29,7 @@ SECRET_KEY =os.environ['SECRET_KEY']
 
 DEBUG = (os.environ['DEBUG']=="True")
 
-ALLOWED_HOSTS = ['web-production-a82c.up.railway.app']
+ALLOWED_HOSTS = ['web-production-a82c.up.railway.app','localhost','9824-102-89-46-211.eu.ngrok.io']
 
 
 # Application definition
@@ -147,4 +147,12 @@ STATIC_ROOT =os.path.join(BASE_DIR,'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-a82c.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-a82c.up.railway.app','https://9824-102-89-46-211.eu.ngrok.io']
+
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER='support@peaceelechi.com'
+EMAIL_HOST_PASSWORD='UbAf3wQTDcfPp6r3@'
+# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_USE_TLS = True

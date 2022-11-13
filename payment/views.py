@@ -4,14 +4,14 @@ import json
 from . import forms,models
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
-from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib import messages
 
-
+from django.core.mail import send_mail
 
 def indexView(request):
     if request.method == 'POST':
-        form = forms.PaymentForm()
+        form = forms.PaymentForm(request.POST)
         if form.is_valid():
             form.save()
             email  =form.cleaned_data.get('email')
@@ -30,8 +30,8 @@ def indexView(request):
             data = dict(request.POST)
             email = data.get('email')
             models.PaymentInfo.objects.filter(email=email).delete()
-            messages.add_message(request, messages.error, 'Something went wrong please check your internet and try again')
         # return render(request,'index.html',{'word':'hello world'})
+
 
     return render(request,'index.html',{'word':'hello world'})
 
@@ -46,8 +46,25 @@ def payment_webhook(request,pk=None):
     meta_data =data['data']['metadata']
     if data.get('event') == 'charge.success':
         email = meta_data['email']
+        send_mail(
+        'Link to peace course!',
+        """
+        Thanks For the Purchase,
+
+        please use this link to access the course: wwww.google.com
+        """,
+
+        'support@peaceelechi.com',
+        [email],
+
+        fail_silently=False,
+        )
         me =models.PaymentInfo.objects.filter(email=email).first()
         me.payment_approved=True
+        me.mail_sent=True
         me.save()
+
+
+#   messages.success(request,'Hey We Have Received Your Informations and We Will Get Back To You!!')
 
     return HttpResponse(200)
