@@ -17,14 +17,22 @@ def indexView(request,id=None):
             email  =form.cleaned_data.get('email')
             form_number  =form.cleaned_data.get('form_number')
             print('worked data create we can process payment')
-            init = InitPayment(
-            email=email,
-            amount=10000,
-            meta_data={
-                'email':email,
-                'form_number':form_number
-            }
-        )
+            if form_number == '1':
+                init = InitPayment(
+                email=email,
+                amount=5000,
+                meta_data={
+                    'email':email,
+                    'form_number':form_number
+                }
+            )
+            else:
+                init = InitPayment(
+                email=email,
+                amount=3000,
+                meta_data={
+                    'email':email,
+                    'form_number':form_number})              
             response = init.create_payment_link()
             return  redirect(response['data']['authorization_url'])
         else:
